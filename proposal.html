@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMB MEP - Digital Marketing & Web Presence Proposal</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --charcoal: #1a1a1a;
+            --charcoal-light: #222222;
+            --magenta: #9B2D5E;
+            --magenta-dark: #7a1f3d;
+            --magenta-light: #b33d70;
+            --white: #ffffff;
+            --gray-light: #f5f5f5;
+            --gray-medium: #e0e0e0;
+        }
+
+        @page {
+            size: letter;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--charcoal);
+            line-height: 1.6;
+            background: white;
+        }
+
+        @media print {
+            body {
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+
+            .page {
+                page-break-after: always;
+                page-break-inside: avoid;
+            }
+
+            .page:last-child {
+                page-break-after: auto;
+            }
+
+            .no-break {
+                page-break-inside: avoid;
+            }
+
+            h2 {
+                page-break-after: avoid;
+            }
+
+            table {
+                page-break-inside: avoid;
+            }
+        }
+
+        .page {
+            width: 8.5in;
+            min-height: 11in;
+            padding: 0.75in;
+            background: white;
+            position: relative;
+        }
+
+        /* Cover Page */
+        .cover {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, var(--charcoal) 0%, var(--charcoal-light) 100%);
+            color: var(--white);
+        }
+
+        .cover-logo {
+            max-width: 300px;
+            height: auto;
+            margin-bottom: 2rem;
+            border-radius: 16px;
+        }
+
+        .cover h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .cover .subtitle {
+            font-size: 1.75rem;
+            font-weight: 400;
+            margin-bottom: 3rem;
+            color: var(--gray-medium);
+        }
+
+        .cover .accent-bar {
+            width: 100px;
+            height: 4px;
+            background: var(--magenta);
+            margin: 2rem auto;
+        }
+
+        .cover .meta {
+            font-size: 1.125rem;
+            margin-top: 3rem;
+            color: var(--gray-medium);
+        }
+
+        .cover .meta strong {
+            color: var(--white);
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--charcoal);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--charcoal);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--magenta);
+            display: inline-block;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--charcoal);
+            margin-bottom: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+        .header-bar {
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(90deg, var(--magenta) 0%, var(--magenta-light) 100%);
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: var(--white);
+            border: 1px solid var(--gray-medium);
+        }
+
+        thead {
+            background: var(--charcoal);
+            color: var(--white);
+        }
+
+        th {
+            padding: 0.875rem;
+            text-align: left;
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        td {
+            padding: 0.875rem;
+            border-bottom: 1px solid var(--gray-medium);
+            font-size: 0.95rem;
+        }
+
+        tbody tr:hover {
+            background: var(--gray-light);
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Package Cards */
+        .packages {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .package-card {
+            background: var(--gray-light);
+            border: 2px solid var(--gray-medium);
+            border-radius: 12px;
+            padding: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .package-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--magenta);
+        }
+
+        .package-card.featured {
+            border-color: var(--magenta);
+            background: linear-gradient(135deg, rgba(155, 45, 94, 0.05) 0%, var(--gray-light) 100%);
+        }
+
+        .package-card.featured::before {
+            height: 6px;
+            background: linear-gradient(90deg, var(--magenta) 0%, var(--magenta-light) 100%);
+        }
+
+        .package-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--charcoal);
+            margin-bottom: 0.5rem;
+        }
+
+        .package-price {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--magenta);
+            margin-bottom: 1rem;
+        }
+
+        .package-price small {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--charcoal);
+        }
+
+        .package-card ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .package-card li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 0.95rem;
+        }
+
+        .package-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--magenta);
+            font-weight: bold;
+        }
+
+        /* Stats/Callout Boxes */
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .stat-box {
+            background: var(--charcoal);
+            color: var(--white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--magenta);
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            color: var(--gray-medium);
+        }
+
+        /* Alert/Info Boxes */
+        .info-box {
+            background: rgba(155, 45, 94, 0.08);
+            border-left: 4px solid var(--magenta);
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .info-box strong {
+            color: var(--magenta);
+        }
+
+        /* Lists */
+        .styled-list {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .styled-list li {
+            padding: 0.5rem 0;
+            padding-left: 1.75rem;
+            position: relative;
+        }
+
+        .styled-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--magenta);
+            font-weight: bold;
+        }
+
+        /* Contact/CTA Page */
+        .cta-section {
+            background: var(--charcoal);
+            color: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .cta-section h2 {
+            color: var(--white);
+            border: none;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .contact-info a {
+            color: var(--magenta);
+            text-decoration: none;
+        }
+
+        /* Domain recommendation highlight */
+        .recommended {
+            background: rgba(155, 45, 94, 0.1);
+            font-weight: 600;
+        }
+
+        /* Footer on each page */
+        .page-footer {
+            position: absolute;
+            bottom: 0.5in;
+            left: 0.75in;
+            right: 0.75in;
+            font-size: 0.75rem;
+            color: var(--gray-medium);
+            text-align: center;
+            border-top: 1px solid var(--gray-medium);
+            padding-top: 0.5rem;
+        }
+
+        /* Emoji Icons */
+        .icon {
+            font-size: 1.5rem;
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- COVER PAGE -->
+    <div class="page cover">
+        <img src="logo.jpg" alt="AMB MEP Logo" class="cover-logo">
+        <h1>Digital Marketing &<br>Web Presence Proposal</h1>
+        <div class="accent-bar"></div>
+        <p class="subtitle">A Strategic Plan to Get AMB Online & Generating Leads</p>
+        <div class="meta">
+            <p><strong>Prepared for:</strong> AMB Mechanical Electrical & Plumbing</p>
+            <p><strong>Prepared by:</strong> Chacier Warhurst</p>
+            <p><strong>Date:</strong> March 2026</p>
+        </div>
+    </div>
+
+    <!-- ABOUT AMB -->
+    <div class="page">
+        <div class="header-bar"></div>
+        <h2>About AMB</h2>
+        <p>AMB Mechanical Electrical & Plumbing — <strong>"All My Brothers"</strong> — is a family-owned and operated HVAC, electrical, and plumbing company serving the Denver metro area. With trained tradesmen and a commitment to quality, AMB provides:</p>
+
+        <ul class="styled-list">
+            <li><strong>HVAC Service & Repair</strong> (Furnace, AC, Boilers)</li>
+            <li><strong>Electrical Services</strong> (Generators, Panel Repair/Upgrades)</li>
+            <li><strong>Plumbing Solutions</strong> (Water Heaters Tank/Tankless)</li>
+            <li><strong>Inspections</strong></li>
+        </ul>
+
+        <div class="info-box">
+            <strong>Contact:</strong> 720.883.2783
+        </div>
+
+        <h2 style="margin-top: 3rem;">🔧 The Problem</h2>
+        <p><strong>Right now, AMB is invisible online.</strong></p>
+        <p>No website, no Google Business Profile, no way for customers to find you when they Google "HVAC repair near me" — which is how <strong>97% of consumers</strong> find local services today. You're leaving jobs on the table every day.</p>
+
+        <div class="stat-grid">
+            <div class="stat-box">
+                <span class="stat-number">97%</span>
+                <span class="stat-label">of consumers search online for local services</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">88%</span>
+                <span class="stat-label">of local mobile searches result in a call or visit within 24 hours</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- FREE RECOMMENDATIONS -->
+    <div class="page">
+        <div class="header-bar"></div>
+        <h2>🟢 FREE — Do This Today (No Cost)</h2>
+        <p>These are things AMB should set up immediately at zero cost:</p>
+
+        <table class="no-break">
+            <thead>
+                <tr>
+                    <th>Action</th>
+                    <th>Why It Matters</th>
+                    <th>Cost</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Google Business Profile</strong></td>
+                    <td>Shows up in Google Maps, local search results. #1 driver of leads for local trades.</td>
+                    <td>Free</td>
+                </tr>
+                <tr>
+                    <td><strong>Yelp Business Listing</strong></td>
+                    <td>Consumers check Yelp for reviews. Claim your page.</td>
+                    <td>Free</td>
+                </tr>
+                <tr>
+                    <td><strong>Nextdoor Business Page</strong></td>
+                    <td>Neighborhood recommendations = gold for trades.</td>
+                    <td>Free</td>
+                </tr>
+                <tr>
+                    <td><strong>Facebook Business Page</strong></td>
+                    <td>Social proof + shareable content. Post job photos weekly.</td>
+                    <td>Free</td>
+                </tr>
+                <tr>
+                    <td><strong>Angi (Angie's List) Profile</strong></td>
+                    <td>Homeowners search Angi for vetted contractors.</td>
+                    <td>Free to list</td>
+                </tr>
+                <tr>
+                    <td><strong>BBB Listing</strong></td>
+                    <td>Builds trust and credibility.</td>
+                    <td>Free to list</td>
+                </tr>
+                <tr>
+                    <td><strong>Start Collecting Google Reviews</strong></td>
+                    <td>5-star reviews are the #1 conversion factor. Ask every happy customer.</td>
+                    <td>Free</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="info-box">
+            <strong>Estimated impact:</strong> Within 30 days, AMB appears in local search results for HVAC, plumbing, and electrical services.
+        </div>
+    </div>
+
+    <!-- THREE TIER PACKAGES -->
+    <div class="page">
+        <div class="header-bar"></div>
+        <h2>🎯 The Solution: Three Tiers</h2>
+
+        <div class="packages no-break">
+            <div class="package-card">
+                <div class="package-name">🟡 Essentials</div>
+                <div class="package-price">$200<small>/month</small></div>
+                <p style="font-size: 0.9rem; margin-bottom: 0.5rem;">Professional web presence</p>
+                <ul>
+                    <li>Custom domain</li>
+                    <li>Google Workspace email</li>
+                    <li>One-page website</li>
+                    <li>Google Business Profile setup</li>
+                    <li>Monthly maintenance</li>
+                </ul>
+            </div>
+
+            <div class="package-card featured">
+                <div class="package-name">🔴 Growth</div>
+                <div class="package-price">$500<small>/month</small></div>
+                <p style="font-size: 0.9rem; margin-bottom: 0.5rem;">Full marketing engine</p>
+                <ul>
+                    <li>Everything in Essentials</li>
+                    <li>Google Local Service Ads</li>
+                    <li>SEO content</li>
+                    <li>Review management</li>
+                    <li>Social media management</li>
+                    <li>Monthly analytics</li>
+                </ul>
+            </div>
+
+            <div class="package-card">
+                <div class="package-name">🟣 Full Service</div>
+                <div class="package-price">$1,000<small>/month</small></div>
+                <p style="font-size: 0.9rem; margin-bottom: 0.5rem;">Dominate your market</p>
+                <ul>
+                    <li>Everything in Growth</li>
+                    <li>Google Search Ads (PPC)</li>
+                    <li>Seasonal campaigns</li>
+                    <li>Video content</li>
+                    <li>Competitor analysis</li>
+                    <li>Referral program</li>
+                    <li>Direct mail design</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3 style="margin-top: 2rem;">Package Details: 🟡 Essentials ($200/month)</h3>
+        <table class="no-break">
+            <thead>
+                <tr>
+                    <th>Deliverable</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Custom Domain</strong></td>
+                    <td>ambmep.co or ambmechanicalco.com (your brand, your URL)</td>
+                </tr>
+                <tr>
+                    <td><strong>Google Workspace Email</strong></td>
+                    <td>Professional email (info@ambmep.co, quotes@ambmep.co)</td>
+                </tr>
+                <tr>
+                    <td><strong>One-Page Website</strong></td>
+                    <td>Mobile-optimized, fast-loading, SEO-ready site with services, reviews, contact form, and click-to-call</td>
+                </tr>
+                <tr>
+                    <td><strong>Google Business Profile Setup</strong></td>
+                    <td>Fully configured with photos, services, hours, and review management</td>
+                </tr>
+                <tr>
+                    <td><strong>Monthly Maintenance</strong></td>
+                    <td>Updates, uptime monitoring, security patches</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h4>Cost Breakdown:</h4>
+        <ul class="styled-list">
+            <li>Domain registration: ~$12/year ($1/month)</li>
+            <li>Google Workspace (Business Starter): $7/user/month (2 users = $14/month)</li>
+            <li>Website hosting (Vercel/Netlify): Free tier</li>
+            <li>Management & maintenance: $185/month</li>
+        </ul>
+
+        <div class="info-box">
+            <strong>What you get:</strong> A professional online presence that captures leads 24/7. Customers can find you, trust you, and call you — all from their phone.
+        </div>
+    </div>
+
+    <!-- GROWTH PACKAGE -->
+    <div class="page">
+        <div class="header-bar"></div>
+        <h3>Package Details: 🔴 Growth ($500/month)</h3>
+        <p>Everything in Essentials, plus active lead generation:</p>
+
+        <table class="no-break">
+            <thead>
+                <tr>
+                    <th>Deliverable</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Everything in Essentials</strong></td>
+                    <td>Domain, email, website, Google Business Profile</td>
+                </tr>
+                <tr>
+                    <td><strong>Google Local Service Ads (LSA)</strong></td>
+                    <td>Pay-per-lead ads that show at the very top of Google. You only pay for actual calls. "Google Guaranteed" badge builds instant trust.</td>
+                </tr>
+                <tr>
+                    <td><strong>SEO Content</strong></td>
+                    <td>Monthly blog posts targeting "furnace repair Denver," "emergency plumber Lakewood," etc.</td>
+                </tr>
+                <tr>
+                    <td><strong>Review Management</strong></td>
+                    <td>Automated review request system after every job. Respond to all reviews.</td>
+                </tr>
+                <tr>
+                    <td><strong>Social Media Management</strong></td>
+                    <td>3-4 posts/week on Facebook + Instagram (job photos, tips, seasonal reminders)</td>
+                </tr>
+                <tr>
+                    <td><strong>Monthly Analytics Report</strong></td>
+                    <td>How many leads, where they came from, what's working</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="info-box">
+            <strong>Ad spend is additional:</strong> Recommended $300-500/month for Google LSA. You set the budget and only pay for leads.<br><br>
+            <strong>What you get:</strong> A marketing engine that generates consistent inbound leads while you focus on the work.
+        </div>
+
+        <h3 style="margin-top: 2rem;">Package Details: 🟣 Full Service ($1,000/month)</h3>
+        <p>Everything in Growth, plus premium marketing:</p>
+
+        <table class="no-break">
+            <thead>
+                <tr>
+                    <th>Deliverable</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Everything in Growth</strong></td>
+                    <td>Website, SEO, ads, social, reviews</td>
+                </tr>
+                <tr>
+                    <td><strong>Google Search Ads (PPC)</strong></td>
+                    <td>Targeted ads for high-value searches (AC installation, generator install, panel upgrades)</td>
+                </tr>
+                <tr>
+                    <td><strong>Seasonal Campaigns</strong></td>
+                    <td>Spring AC tune-up, fall furnace check, winter emergency service promos</td>
+                </tr>
+                <tr>
+                    <td><strong>Video Content</strong></td>
+                    <td>Monthly short-form video (job walkthroughs, tips) for social + website</td>
+                </tr>
+                <tr>
+                    <td><strong>Competitor Analysis</strong></td>
+                    <td>Monthly audit of what competitors are doing and how to beat them</td>
+                </tr>
+                <tr>
+                    <td><strong>Referral Program Setup</strong></td>
+                    <td>"Refer a neighbor" program to turn happy customers into lead generators</td>
+                </tr>
+                <tr>
+                    <td><strong>Direct Mail Design</strong></td>
+                    <td>Door hanger + postcard designs for targeted neighborhoods</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="info-box">
+            <strong>Ad spend is additional:</strong> Recommended $500-1,000/month across Google LSA + PPC.
+        </div>
+    </div>
+
+    <!-- GOOGLE WORKSPACE -->
+    <div class="page">
+        <div class="header-bar"></div>
+        <h2>💰 Google Workspace Setup Details</h2>
+        <p>Professional email makes a massive difference in customer trust.</p>
+
+        <table class="no-break">
+            <thead>
+                <tr>
+                    <th>Plan</th>
+                    <th>Price</th>
+                    <th>What You Get</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Business Starter</strong></td>
+                    <td>$7/user/month</td>
+                    <td>Custom email (@ambmep.co), 30GB storage, Google Meet, Docs/Sheets/Drive</td>
+                </tr>
+                <tr>
+                    <td><strong>Business Standard</strong></td>
+                    <td>$14/user/month</td>
+                    <td>2TB storage, recording in Meet, shared drives</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="info-box">
+            <strong>Recommendation:</strong> Business Starter for 2 users = <strong>$14/month</strong>
+            <ul style="margin-top: 0.5rem; list-style: none;">
+                <li>→ info@ambmep.co — main business email</li>
+                <li>→ Personal email for the owner (e.g., mike@ambmep.co)</li>
+            </ul>
+            <p style="margin-top: 0.5rem;">Annual commitment saves 16%: <strong>$11.76/month</strong> for 2 users.</p>
+        </div>
+
+        <h2 style="margin-top: 3rem;">🌐 Domain Recommendations</h2>
+
+        <table class="no-break">
+            <thead>
+                <tr>
+                    <th>Domain</th>
+                    <th>Status</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="recommended">
+                    <td><strong>ambmep.co ⭐</strong></td>
+                    <td>Available</td>
+                    <td>Short, memorable, professional. "AMB MEP" = industry standard abbreviation</td>
+                </tr>
+                <tr>
+                    <td>ambmechanicalco.com</td>
+                    <td>Available</td>
+                    <td>Longer but descriptive</td>
+                </tr>
+                <tr>
+                    <td>amb-mep.com</td>
+                    <td>Available</td>
+                    <td>Hyphenated (less ideal for SEO)</td>
+                </tr>
+                <tr>
+                    <td>callambservices.com</td>
+                    <td>Available</td>
+                    <td>Action-oriented</td>
+                </tr>
+                <tr>
+                    <td>ambhvac.com</td>
+                    <td>Available</td>
+                    <td>Good if HVAC is primary service</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="info-box">
+            <strong>Recommendation:</strong> ambmep.co — clean, short, easy to say on the phone, and "MEP" (Mechanical, Electrical, Plumbing) is the industry term. ~$12/year.
+        </div>
+    </div>
+
+    <!-- INDUSTRY DATA & ROI -->
+    <div class="page">
+        <div class="header-bar"></div>
+        <h2>📊 Why This Matters — Industry Data</h2>
+
+        <div class="stat-grid">
+            <div class="stat-box">
+                <span class="stat-number">97%</span>
+                <span class="stat-label">of consumers search online for local services</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">88%</span>
+                <span class="stat-label">of local mobile searches result in a call or visit within 24 hours</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">72%</span>
+                <span class="stat-label">of consumers who do a local search visit a store within 5 miles</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">92%</span>
+                <span class="stat-label">of customers read online reviews before choosing a contractor</span>
+            </div>
+        </div>
+
+        <h3 style="margin-top: 2rem;">Additional Industry Insights:</h3>
+        <ul class="styled-list">
+            <li>The average HVAC company generates <strong>$50-150 per lead</strong> from Google</li>
+            <li>A single furnace replacement job = <strong>$3,000-8,000 revenue</strong></li>
+        </ul>
+
+        <div class="info-box" style="margin-top: 2rem;">
+            <strong>ROI example:</strong> At $500/month (Growth plan), you need just <strong>1-2 extra jobs per month</strong> to cover the entire marketing cost. Everything beyond that is profit.
+        </div>
+
+        <h2 style="margin-top: 3rem;">🚀 Recommended First Steps</h2>
+        <ol style="font-size: 1.125rem; line-height: 2; margin-left: 1.5rem;">
+            <li><strong>Claim Google Business Profile</strong> (free, do this week)</li>
+            <li><strong>Purchase domain</strong> (ambmep.co — $12)</li>
+            <li><strong>Set up Google Workspace</strong> ($14/month)</li>
+            <li><strong>Launch website</strong> (included in any paid plan)</li>
+            <li><strong>Start collecting reviews</strong> (ask every customer)</li>
+        </ol>
+    </div>
+
+    <!-- CONTACT/CTA PAGE -->
+    <div class="page">
+        <div class="header-bar"></div>
+        <div style="height: 3in;"></div>
+
+        <div class="cta-section">
+            <h2>📞 Ready to Get Started?</h2>
+            <p>Let's get AMB the online presence it deserves.</p>
+            <div class="accent-bar" style="margin: 1.5rem auto;"></div>
+            <div class="contact-info">
+                <p><strong>Chacier Warhurst</strong></p>
+                <p>📧 <a href="mailto:chacier@gmail.com">chacier@gmail.com</a></p>
+                <p>📱 636-358-5715</p>
+            </div>
+        </div>
+
+        <div style="margin-top: 3rem; text-align: center; color: var(--gray-medium); font-size: 0.95rem;">
+            <img src="logo.jpg" alt="AMB MEP Logo" style="max-width: 200px; border-radius: 12px; margin-bottom: 1rem;">
+            <p><strong>AMB Mechanical Electrical & Plumbing</strong></p>
+            <p>All My Brothers — Family-Owned & Operated</p>
+            <p>720.883.2783 | Denver Metro Area</p>
+        </div>
+    </div>
+
+</body>
+</html>
