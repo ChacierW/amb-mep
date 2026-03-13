@@ -1,7 +1,7 @@
 # AMB Mechanical Electrical & Plumbing
 ## Digital Marketing & Web Presence Proposal
 
-**Prepared for:** AMB Mechanical Electrical & Plumbing
+**Prepared for:** Gabriel & the AMB Team
 **Prepared by:** Chacier Warhurst
 **Date:** March 2026
 
@@ -53,18 +53,13 @@ This is the foundation every trades business needs:
 | Deliverable | Details |
 |-------------|---------|
 | **Custom Domain** | `ambmep.co` or `ambmechanicalco.com` (your brand, your URL) |
-| **Google Workspace Email** | Professional email (info@ambmep.co, quotes@ambmep.co) |
+| **Professional Email (up to 5)** | Google Workspace email — info@ambmep.co, gabriel@ambmep.co, quotes@ambmep.co, and more |
 | **One-Page Website** | Mobile-optimized, fast-loading, SEO-ready site with services, reviews, contact form, and click-to-call |
 | **Google Business Profile Setup & Optimization** | Fully configured with photos, services, hours, and review management |
+| **Social Media Profile Setup** | Facebook Business Page and Instagram profile — branded, configured, and ready to post |
 | **Monthly Maintenance** | Updates, uptime monitoring, security patches |
 
-**Costs breakdown:**
-- Domain registration: ~$12/year ($1/month)
-- Google Workspace (Business Starter): $7/user/month (recommended: 2 users = $14/month)
-- Website hosting (Vercel/Netlify): Free tier
-- Management & maintenance: $185/month
-
-**What you get:** A professional online presence that captures leads 24/7. Customers can find you, trust you, and call you — all from their phone.
+**What you get:** A complete professional online presence — website, email, Google, and social media — that captures leads 24/7. Customers can find you, trust you, and call you from anywhere.
 
 ---
 
