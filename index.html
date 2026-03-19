@@ -744,6 +744,105 @@
             width: 40px;
             height: 40px;
         }
+
+        /* Gallery Section */
+        .gallery {
+            background: var(--light);
+            padding: 5rem 0;
+        }
+
+        .section-desc {
+            color: var(--gray);
+            font-size: 1.125rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 3rem;
+            color: white;
+            cursor: pointer;
+            z-index: 10001;
+            line-height: 1;
+        }
+
+        .lightbox-close:hover {
+            color: var(--primary);
+        }
+
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.75rem;
+            }
+            
+            .gallery-item {
+                border-radius: 8px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1001,6 +1100,54 @@
         </div>
     </section>
 
+    <!-- Our Work Gallery -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle">Our Work</div>
+                <h2>Recent Projects</h2>
+                <p class="section-desc">See the quality and craftsmanship we bring to every job — from HVAC installations to electrical upgrades and plumbing solutions.</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="images/IMG_9531.jpg" alt="AMB MEP project" loading="lazy" onclick="openLightbox(this)"></div>
+                <div class="gallery-item"><img src="images/IMG_9458.jpg" alt="AMB MEP project" loading="lazy" onclick="openLightbox(this)"></div>
+                <div class="gallery-item"><img src="images/IMG_2737.jpg" alt="AMB MEP project" loading="lazy" onclick="openLightbox(this)"></div>
+                <div class="gallery-item"><img src="images/IMG_6467.jpg" alt="AMB MEP project" loading="lazy" onclick="openLightbox(this)"></div>
+                <div class="gallery-item"><img src="images/IMG_8313.jpg" alt="AMB MEP project" loading="lazy" onclick="openLightbox(this)"></div>
+                <div class="gallery-item"><img src="images/IMG_8315.jpg" alt="AMB MEP project" loading="lazy" onclick="openLightbox(this)"></div>
+                <div class="gallery-item"><img src="images/IMG_9330.jpg" alt="AMB MEP project" loading="lazy" onclick="openLightbox(this)"></div>
+                <div class="gallery-item"><img src="images/IMG_9331.jpg" alt="AMB MEP project" loading="lazy" onclick="openLightbox(this)"></div>
+                <div class="gallery-item"><img src="images/IMG_2854.jpg" alt="AMB MEP project" loading="lazy" onclick="openLightbox(this)"></div>
+                <div class="gallery-item"><img src="images/IMG_2868.jpg" alt="AMB MEP project" loading="lazy" onclick="openLightbox(this)"></div>
+                <div class="gallery-item"><img src="images/IMG_2923.jpg" alt="AMB MEP project" loading="lazy" onclick="openLightbox(this)"></div>
+                <div class="gallery-item"><img src="images/IMG_3009.jpg" alt="AMB MEP project" loading="lazy" onclick="openLightbox(this)"></div>
+                <div class="gallery-item"><img src="images/IMG_4099.jpg" alt="AMB MEP project" loading="lazy" onclick="openLightbox(this)"></div>
+                <div class="gallery-item"><img src="images/IMG_6198.jpg" alt="AMB MEP project" loading="lazy" onclick="openLightbox(this)"></div>
+                <div class="gallery-item"><img src="images/IMG_8832.jpg" alt="AMB MEP project" loading="lazy" onclick="openLightbox(this)"></div>
+                <div class="gallery-item"><img src="images/IMG_9116.jpg" alt="AMB MEP project" loading="lazy" onclick="openLightbox(this)"></div>
+                <div class="gallery-item"><img src="images/IMG_9468.jpg" alt="AMB MEP project" loading="lazy" onclick="openLightbox(this)"></div>
+                <div class="gallery-item"><img src="images/IMG_9470.jpg" alt="AMB MEP project" loading="lazy" onclick="openLightbox(this)"></div>
+                <div class="gallery-item"><img src="images/IMG_9526.jpg" alt="AMB MEP project" loading="lazy" onclick="openLightbox(this)"></div>
+                <div class="gallery-item"><img src="images/IMG_9544.jpg" alt="AMB MEP project" loading="lazy" onclick="openLightbox(this)"></div>
+                <div class="gallery-item"><img src="images/IMG_9545.jpg" alt="AMB MEP project" loading="lazy" onclick="openLightbox(this)"></div>
+                <div class="gallery-item"><img src="images/IMG_9546.jpg" alt="AMB MEP project" loading="lazy" onclick="openLightbox(this)"></div>
+                <div class="gallery-item"><img src="images/IMG_9547.jpg" alt="AMB MEP project" loading="lazy" onclick="openLightbox(this)"></div>
+                <div class="gallery-item"><img src="images/IMG_9548.jpg" alt="AMB MEP project" loading="lazy" onclick="openLightbox(this)"></div>
+                <div class="gallery-item"><img src="images/IMG_9549.jpg" alt="AMB MEP project" loading="lazy" onclick="openLightbox(this)"></div>
+                <div class="gallery-item"><img src="images/IMG_9550.jpg" alt="AMB MEP project" loading="lazy" onclick="openLightbox(this)"></div>
+                <div class="gallery-item"><img src="images/IMG_9551.jpg" alt="AMB MEP project" loading="lazy" onclick="openLightbox(this)"></div>
+                <div class="gallery-item"><img src="images/IMG_9552.jpg" alt="AMB MEP project" loading="lazy" onclick="openLightbox(this)"></div>
+                <div class="gallery-item"><img src="images/IMG_2856.jpg" alt="AMB MEP project" loading="lazy" onclick="openLightbox(this)"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="Project photo">
+    </div>
+
     <!-- Testimonials -->
     <section class="testimonials">
         <div class="container">
@@ -1195,6 +1342,28 @@
                     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
+        });
+
+        // Lightbox functionality
+        function openLightbox(img) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = img.src;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close lightbox on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
         });
     </script>
 </body>
